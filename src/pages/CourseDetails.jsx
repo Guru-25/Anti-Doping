@@ -1,8 +1,53 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Tab, Nav, Row, Col, Image } from 'react-bootstrap';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+const tabData = [
+  {
+    id: 'tab-1',
+    title: 'Introduction',
+    heading: 'Introduction to Anti-Doping',
+    italic: 'Learn the basics of anti-doping, including rules, regulations, and the importance of clean sport.',
+    content: 'Anti-doping education is essential for athletes, coaches, and stakeholders to understand the importance of maintaining integrity in sports. This section provides an overview of anti-doping principles and practices.',
+    image: 'assets/img/tabs/intro.png'
+  },
+  {
+    id: 'tab-2',
+    title: 'Prohibited Substances',
+    heading: 'Prohibited Substances',
+    italic: 'Understand which substances are prohibited and why they are banned in sports.',
+    content: 'This section covers the list of prohibited substances, their effects, and the reasons for their ban. It is crucial for athletes to be aware of these substances to avoid unintentional violations.',
+    image: 'assets/img/tabs/substances.png'
+  },
+  {
+    id: 'tab-3',
+    title: 'Testing Procedures',
+    heading: 'Testing Procedures',
+    italic: 'Learn about the procedures and protocols for anti-doping testing.',
+    content: 'Testing is a critical component of anti-doping efforts. This section explains the testing procedures, including sample collection, analysis, and the rights and responsibilities of athletes during the testing process.',
+    image: 'assets/img/tabs/testing.png'
+  },
+  {
+    id: 'tab-4',
+    title: 'Therapeutic Use Exemptions',
+    heading: 'Therapeutic Use Exemptions (TUEs)',
+    italic: 'Understand the process for obtaining exemptions for necessary medications.',
+    content: 'Athletes with medical conditions may need to use prohibited substances. This section explains the Therapeutic Use Exemption (TUE) process, including how to apply and the criteria for approval.',
+    image: 'assets/img/tabs/tue.png'
+  },
+  {
+    id: 'tab-5',
+    title: 'Consequences',
+    heading: 'Consequences of Doping',
+    italic: 'Learn about the consequences of doping violations.',
+    content: 'Doping violations can have severe consequences for athletes, including suspensions, fines, and damage to reputation. This section outlines the potential penalties and the importance of adhering to anti-doping regulations.',
+    image: 'assets/img/tabs/consequences.png'
+  }
+];
+
 function CourseDetails() {
+  const [key, setKey] = useState('tab-1');
   useEffect(() => {
     AOS.init({ duration: 1000 });
 
@@ -45,7 +90,7 @@ function CourseDetails() {
               <a href="contact">Contact</a>
             </li>
           </ul>
-          <i className="mobile-nav-toggle d-xl-none bi bi-list" />
+          {/* <i className="mobile-nav-toggle d-xl-none bi bi-list" /> */}
         </nav>
         <a className="btn-getstarted" href="courses">
           Get Started
@@ -137,165 +182,38 @@ function CourseDetails() {
       />
       {/* Tabs Section */}
       <section id="tabs" className="tabs section">
-        <div className="container" data-aos="fade-up" data-aos-delay={100}>
-          <div className="row">
-            <div className="col-lg-3">
-              <ul className="nav nav-tabs flex-column">
-                <li className="nav-item">
-                  <a
-                    className="nav-link active show"
-                    data-bs-toggle="tab"
-                    href="#tab-1"
-                  >
-                    Introduction
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" data-bs-toggle="tab" href="#tab-2">
-                    Prohibited Substances
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" data-bs-toggle="tab" href="#tab-3">
-                    Testing Procedures
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" data-bs-toggle="tab" href="#tab-4">
-                    Therapeutic Use Exemptions
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" data-bs-toggle="tab" href="#tab-5">
-                    Consequences
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-lg-9 mt-4 mt-lg-0">
-              <div className="tab-content">
-                <div className="tab-pane active show" id="tab-1">
-                  <div className="row">
-                    <div className="col-lg-8 details order-2 order-lg-1">
-                      <h3>Introduction to Anti-Doping</h3>
-                      <p className="fst-italic">
-                        Learn the basics of anti-doping, including rules,
-                        regulations, and the importance of clean sport.
-                      </p>
-                      <p>
-                        Anti-doping education is essential for athletes, coaches,
-                        and stakeholders to understand the importance of
-                        maintaining integrity in sports. This section provides an
-                        overview of anti-doping principles and practices.
-                      </p>
-                    </div>
-                    <div className="col-lg-4 text-center order-1 order-lg-2">
-                      <img
-                        src="assets/img/tabs/intro.png"
-                        alt=""
-                        className="img-fluid"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="tab-pane" id="tab-2">
-                  <div className="row">
-                    <div className="col-lg-8 details order-2 order-lg-1">
-                      <h3>Prohibited Substances</h3>
-                      <p className="fst-italic">
-                        Understand which substances are prohibited and why they
-                        are banned in sports.
-                      </p>
-                      <p>
-                        This section covers the list of prohibited substances,
-                        their effects, and the reasons for their ban. It is
-                        crucial for athletes to be aware of these substances to
-                        avoid unintentional violations.
-                      </p>
-                    </div>
-                    <div className="col-lg-4 text-center order-1 order-lg-2">
-                      <img
-                        src="assets/img/tabs/substances.png"
-                        alt=""
-                        className="img-fluid"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="tab-pane" id="tab-3">
-                  <div className="row">
-                    <div className="col-lg-8 details order-2 order-lg-1">
-                      <h3>Testing Procedures</h3>
-                      <p className="fst-italic">
-                        Learn about the procedures and protocols for anti-doping
-                        testing.
-                      </p>
-                      <p>
-                        Testing is a critical component of anti-doping efforts.
-                        This section explains the testing procedures, including
-                        sample collection, analysis, and the rights and
-                        responsibilities of athletes during the testing process.
-                      </p>
-                    </div>
-                    <div className="col-lg-4 text-center order-1 order-lg-2">
-                      <img
-                        src="assets/img/tabs/testing.png"
-                        alt=""
-                        className="img-fluid"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="tab-pane" id="tab-4">
-                  <div className="row">
-                    <div className="col-lg-8 details order-2 order-lg-1">
-                      <h3>Therapeutic Use Exemptions (TUEs)</h3>
-                      <p className="fst-italic">
-                        Understand the process for obtaining exemptions for
-                        necessary medications.
-                      </p>
-                      <p>
-                        Athletes with medical conditions may need to use
-                        prohibited substances. This section explains the
-                        Therapeutic Use Exemption (TUE) process, including how to
-                        apply and the criteria for approval.
-                      </p>
-                    </div>
-                    <div className="col-lg-4 text-center order-1 order-lg-2">
-                      <img
-                        src="assets/img/tabs/tue.png"
-                        alt=""
-                        className="img-fluid"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="tab-pane" id="tab-5">
-                  <div className="row">
-                    <div className="col-lg-8 details order-2 order-lg-1">
-                      <h3>Consequences of Doping</h3>
-                      <p className="fst-italic">
-                        Learn about the consequences of doping violations.
-                      </p>
-                      <p>
-                        Doping violations can have severe consequences for
-                        athletes, including suspensions, fines, and damage to
-                        reputation. This section outlines the potential penalties
-                        and the importance of adhering to anti-doping regulations.
-                      </p>
-                    </div>
-                    <div className="col-lg-4 text-center order-1 order-lg-2">
-                      <img
-                        src="assets/img/tabs/consequences.png"
-                        alt=""
-                        className="img-fluid"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="container" data-aos="fade-up" data-aos-delay="100">
+          <Tab.Container activeKey={key} onSelect={(k) => setKey(k)}>
+            <Row>
+              <Col lg={3}>
+                <Nav variant="tabs" className="flex-column">
+                  {tabData.map((tab) => (
+                    <Nav.Item key={tab.id}>
+                      <Nav.Link eventKey={tab.id}>{tab.title}</Nav.Link>
+                    </Nav.Item>
+                  ))}
+                </Nav>
+              </Col>
+              <Col lg={9} className="mt-4 mt-lg-0">
+                <Tab.Content>
+                  {tabData.map((tab) => (
+                    <Tab.Pane key={tab.id} eventKey={tab.id}>
+                      <Row>
+                        <Col lg={8} className="details order-2 order-lg-1">
+                          <h3>{tab.heading}</h3>
+                          <p className="fst-italic">{tab.italic}</p>
+                          <p>{tab.content}</p>
+                        </Col>
+                        <Col lg={4} className="text-center order-1 order-lg-2">
+                          <Image src={tab.image} alt="" fluid />
+                        </Col>
+                      </Row>
+                    </Tab.Pane>
+                  ))}
+                </Tab.Content>
+              </Col>
+            </Row>
+          </Tab.Container>
         </div>
       </section>
       {/* /Tabs Section */}

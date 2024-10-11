@@ -45,7 +45,7 @@ function Courses() {
               <a href="contact">Contact</a>
             </li>
           </ul>
-          <i className="mobile-nav-toggle d-xl-none bi bi-list" />
+          {/* <i className="mobile-nav-toggle d-xl-none bi bi-list" /> */}
         </nav>
         <a className="btn-getstarted" href="courses">
           Get Started
