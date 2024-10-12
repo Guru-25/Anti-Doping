@@ -7,20 +7,24 @@ import Courses from './pages/Courses';
 import Events from './pages/Events';
 import Trainers from './pages/Trainers';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Footer from './components/Footer';
 
 function App() {
     return (
-      <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/course-details" element={<CourseDetails />} />
-        <Route path="/courses" element={<Courses />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/trainers" element={<Trainers />} />
-      </Routes>
-      </BrowserRouter>
+      <div>
+        <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/course-details" element={<CourseDetails />} />
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/trainers" element={<Trainers />} />
+        </Routes>
+        </BrowserRouter>
+        <Footer />
+      </div>
     );
 }
 
